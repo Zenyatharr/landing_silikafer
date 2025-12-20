@@ -11,6 +11,7 @@ import qr3 from "../../src/assets/qr/istina_776944165.png";
 
 import fasieLogo from "../../src/assets/FASIE.svg"
 import ourLogo from "../../src/assets/logo.svg"
+import scheme_stomach from "../../src/assets/sheme.png"
 
 type Language = 'en' | 'ru';
 
@@ -360,7 +361,7 @@ function MechanismSection({
               {/* soft blob */}
               <div className="relative rounded-3xl bg-white/60 p-6">
                 <img
-                  src="../../src/assets/sheme.png"
+                  src={scheme_stomach}
                   alt="Controlled release mechanism"
                   className="max-w-full max-h-full h-auto object-contain select-none pointer-events-none"
                 />
