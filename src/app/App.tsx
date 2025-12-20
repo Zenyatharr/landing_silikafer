@@ -240,19 +240,6 @@ export const mech = {
   },
 };
 
-const i18n_mech = {
-  ru: {
-    schemeAlt: "Механизм контролируемого высвобождения",
-    schemeCaption: "Механизм контролируемого высвобождения",
-  },
-  en: {
-    schemeAlt: "Controlled release mechanism",
-    schemeCaption: "Controlled release mechanism",
-  },
-} as const;
-
-const tr_mech = i18n_mech[language];
-
 export const fadeInUpVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -380,7 +367,7 @@ function MechanismSection({
               
                 <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2">
                   <div className="rounded-full center bg-white/80 px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 backdrop-blur">
-                    {tr_mech.schemeCaption}
+                    {language === "ru" ? "Механизм контролируемого высвобождения" : "Controlled release mechanism"}
                   </div>
                 </div>
               </div>
