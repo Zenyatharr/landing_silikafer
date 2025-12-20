@@ -367,17 +367,18 @@ function MechanismSection({
               
                 {/* Mobile: caption below */}
                 <div className="mt-4 text-center sm:hidden">
-                  <span className="inline-flex items-center rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-[11px] font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur-md">
+                  <span className="inline-flex items-center justify-center rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-[11px] font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur-md text-center">
                     {language === "ru"
                       ? "Механизм контролируемого высвобождения"
                       : "Controlled release mechanism"}
                   </span>
                 </div>
+
               
                 {/* Desktop+: overlay */}
                 <div className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 sm:block">
                   <div className="relative overflow-hidden rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-[11px] font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur-md">
-                    <span className="relative z-10">
+                    <span className="justify-center relative z-10">
                       {language === "ru"
                         ? "Механизм контролируемого высвобождения"
                         : "Controlled release mechanism"}
