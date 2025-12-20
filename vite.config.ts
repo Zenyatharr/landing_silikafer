@@ -16,6 +16,6 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  base: "/",
+  base: "/landing_silikafer/",
 })
 
