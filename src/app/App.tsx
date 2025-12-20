@@ -252,7 +252,7 @@ const i18n_mech = {
 } as const;
 
 // lang: "ru" | "en"
-const tr = i18n_mech[lang];
+const tr_mech = i18n_mech[lang];
 
 export const fadeInUpVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -381,7 +381,7 @@ function MechanismSection({
               
                 <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2">
                   <div className="rounded-full center bg-white/80 px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 backdrop-blur">
-                    {tr.schemeCaption}
+                    {tr_mech.schemeCaption}
                   </div>
                 </div>
               </div>
