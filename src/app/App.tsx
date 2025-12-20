@@ -358,16 +358,31 @@ function MechanismSection({
               </div>
 
               {/* soft blob */}
-              <div className="relative rounded-3xl bg-white/60 p-6">
+              <div className="relative rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm backdrop-blur">
                 <img
                   src={scheme_stomach}
                   alt="Controlled release mechanism"
                   className="mx-auto max-w-full h-auto object-contain select-none pointer-events-none"
                 />
               
-                <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2">
-                  <div className="rounded-full center bg-white/80 px-4 py-2 text-xs text-center font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 backdrop-blur">
-                    {language === "ru" ? "Механизм контролируемого высвобождения" : "Controlled release mechanism"}}
+                {/* Mobile: caption below */}
+                <div className="mt-4 text-center sm:hidden">
+                  <span className="inline-flex items-center rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-[11px] font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur-md">
+                    {language === "ru"
+                      ? "Механизм контролируемого высвобождения"
+                      : "Controlled release mechanism"}
+                  </span>
+                </div>
+              
+                {/* Desktop+: overlay */}
+                <div className="pointer-events-none absolute bottom-4 left-1/2 hidden -translate-x-1/2 sm:block">
+                  <div className="relative overflow-hidden rounded-full border border-slate-200/80 bg-white/70 px-4 py-2 text-[11px] font-semibold tracking-wide text-slate-700 shadow-sm backdrop-blur-md">
+                    <span className="relative z-10">
+                      {language === "ru"
+                        ? "Механизм контролируемого высвобождения"
+                        : "Controlled release mechanism"}
+                    </span>
+                    <span className="absolute inset-0 -translate-x-1/3 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                   </div>
                 </div>
               </div>
