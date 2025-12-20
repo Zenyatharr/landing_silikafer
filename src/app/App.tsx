@@ -366,8 +366,8 @@ function MechanismSection({
                 />
               
                 <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2">
-                  <div className="rounded-full center bg-white/80 px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 backdrop-blur">
-                    {language === "ru" ? "Механизм контролируемого высвобождения" : "Controlled release mechanism"}
+                  <div className="rounded-full center bg-white/80 px-4 py-2 text-xs text-center font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 backdrop-blur">
+                    {language === "ru" ? "Механизм контролируемого высвобождения" : "Controlled release mechanism"}}
                   </div>
                 </div>
               </div>
