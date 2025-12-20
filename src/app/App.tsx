@@ -268,7 +268,7 @@ function MechanismSection({
 
   return (
     <section id="mechanism" className="py-20 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="lg:grid-cols-2 lg:items-start max-w-7xl mx-auto">
         <motion.div
           initial="hidden"
           whileInView="visible"
