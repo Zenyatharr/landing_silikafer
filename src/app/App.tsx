@@ -285,7 +285,7 @@ function MechanismSection({
           </p>
         </motion.div>
 
-        <div className="lg:grid-cols-2 lg:items-start flex items-center justify-center relative rounded-3xl bg-white/70 flex items-center justify-center p-6">
+        <div className="lg:sticky lg:top-24 lg:grid-cols-2 lg:items-start flex items-center justify-center relative rounded-3xl bg-white/70 flex items-center justify-center p-6">
           {/* LEFT: schematic card */}
           <motion.div
             initial="hidden"
