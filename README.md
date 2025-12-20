@@ -1,7 +1,7 @@
 
-  # Landing Page Draft
+  # Landing Page Silikafer
 
-  This is a code bundle for Landing Page Draft. The original project is available at https://www.figma.com/design/jl3uKbNymYuBG6MjeUHqRP/Landing-Page-Draft.
+  This is a code bundle for Landing Page.
 
   ## Running the code
 
