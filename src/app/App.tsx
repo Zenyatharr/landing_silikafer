@@ -363,9 +363,14 @@ function MechanismSection({
                 <img
                   src={scheme_stomach}
                   alt="Controlled release mechanism"
-                  className="max-w-full max-h-full h-auto object-contain select-none pointer-events-none"
+                  className="mx-auto max-w-full h-auto object-contain select-none pointer-events-none"
                 />
-                <text> Controlled release mechanism </text>
+              
+                <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2">
+                  <div className="rounded-full bg-white/80 px-4 py-2 text-xs font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200 backdrop-blur">
+                    Controlled release mechanism
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
