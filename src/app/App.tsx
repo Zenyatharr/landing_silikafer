@@ -365,6 +365,7 @@ function MechanismSection({
                   alt="Controlled release mechanism"
                   className="max-w-full max-h-full h-auto object-contain select-none pointer-events-none"
                 />
+                <text> Controlled release mechanism </text>
               </div>
             </div>
           </motion.div>
