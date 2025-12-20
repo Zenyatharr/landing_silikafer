@@ -251,7 +251,6 @@ const i18n_mech = {
   },
 } as const;
 
-// lang: "ru" | "en"
 const tr_mech = i18n_mech[language];
 
 export const fadeInUpVariants: Variants = {
