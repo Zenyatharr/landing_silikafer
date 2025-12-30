@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, FlaskConical, Beaker, Atom, Droplet, Award, Shield, Lightbulb, ArrowRight, Mail, Phone, MapPin, Globe, ChevronDown, Pill, Stethoscope, Currency } from 'lucide-react';
+import { Menu, X, FlaskConical, Beaker, Atom, Droplet, Award, Shield, Lightbulb, ArrowRight, Mail, Phone, MapPin, BrainCog, Globe, ChevronDown, Pill, Archive, Stethoscope, Currency, SquareKanban, SquareLibrary } from 'lucide-react';
 import { motion } from "framer-motion";
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { AnimatePresence } from "framer-motion";
@@ -13,7 +13,13 @@ import fasieLogo from "../../src/assets/FASIE.svg"
 import ourLogo from "../../src/assets/logo.svg"
 import scheme_stomach from "../../src/assets/sheme.png"
 
-type Language = 'en' | 'ru';
+import legend_b12 from "../../src/assets/b12.png"
+import legend_cd_fe from "../../src/assets/Fecyclodextrine.png"
+import legend_cd from "../../src/assets/cyclodextrine.png"
+import legend_matrix from "../../src/assets/complex.png"
+import shemePolya from "../../src/assets/polya_sheme.png"
+
+type Language = 'ru' | 'en';
 
 const translations = {
   en: {
@@ -22,11 +28,11 @@ const translations = {
       howItWorks: 'How It Works',
       innovation: 'Innovation',
       about: 'About',
-      contact: 'Contact',
+      contact: 'Juridical Information',
       getStarted: 'Get Started'
     },
     hero: {
-      badge: 'SILIKAFER',
+      badge: 'СИЛИКАФЕР',
       title: "Next-generation drug delivery",
       description: 'We develop drug delivery systems to combat iron-deficiency anemia.',
     },
@@ -102,7 +108,7 @@ const translations = {
       howItWorks: 'Как это работает',
       innovation: 'Инновации',
       about: 'О нас',
-      contact: 'Контакты',
+      contact: 'Сведения о ЮЛ',
       getStarted: 'Начать'
     },
     hero: {
@@ -112,14 +118,14 @@ const translations = {
     },
     services: {
       title: 'Наши ключевые направления',
-      subtitle: 'Разрабатываем системы доставки железа с контролируемым высвобождением там, где оно всасывается.',
+      subtitle: 'Разрабатываем системы доставки железа с контролируемым пролонгированным высвобождением в области всасывания.',
       service1: {
         title: 'Разработка систем доставки',
-        description: 'Создаём решения для адресного переноса железа через желудок к кишечнику.'
+        description: 'Создаём решения для адресной доставки железа в кишечник как в область всасывания.'
       },
       service2: {
         title: 'Оптимизация формулы',
-        description: 'Подбираем состав и параметры, чтобы снизить преждевременное высвобождение.'
+        description: 'Подбираем состав и параметры системы доставки для снижения процента преждевременного высвобождения.'
       },
       service3: {
         title: 'Проектное сопровождение',
@@ -184,26 +190,48 @@ export const mech = {
       title: "Контролируемое высвобождение: желудок → кишечник",
       subtitle:
         "PMSSO-гидрогель с комплексами железа на основе HPCD: повышаем загрузку и замедляем высвобождение в кислой среде.",
+      legendTitle: "Обозначения на схеме:",
+      legendItems: [
+        "Циклодекстрин",
+        "Комплекс циклодекстрина с соединением железа",
+        "3D-матричные наночастицы циклодекстрина",
+        "Витамин B12",
+      ],
+      strategyTitle: "Стратегия системы доставки:",
+      strategyItems: [
+        {
+          title: "Матрица-носитель",
+          text:
+            "Полиметилсилсескивоксановые (PMSSO) гидрогели — биосовместимые кремний-органические гидрогели с высокими сорбционными характеристиками.",
+        },
+        {
+          title: "Агент пролонгированного высвобождения",
+          text:
+            "Циклодекстрины и полимеры на их основе — широко известная группа соединений для доставки лекарственных препаратов и пролонгации их высвобождения.",
+        },
+      ],
       steps: [
         {
           title: "Проблема",
           text:
-            "Связка «PMSSO + Fe(II) D-глюконат» в пилотных экспериментах склонна к быстрому высвобождению в кислой среде, а эффективности сорбции может быть недостаточно для терапевтически значимой дозировки.",
+            "Связка «PMSSO + Fe(II) D-глюконат» способны сорбировать железо, но диффузионное высвобождение происходит в кислой среде желудка.",
         },
         {
           title: "Подход",
           text:
-            "Включаем соединения железа в госте-хозяин комплексы с 2-гидроксипропил-β-циклодекстрином (HPCD) и внедряем их в сеть PMSSO-гидрогеля, чтобы получить более контролируемую систему доставки.",
+            "Перед загрузкой железа в гель загружаем его в комплексы гидроксипропил-β-циклодекстрина — циклодекстрины замедляют высвобождение железа.",
         },
         {
           title: "Проверка в модели ЖКТ",
           text:
-            "В средах, имитирующих пищеварительный тракт, последовательная смена буферов «желудок → кишечник» показала замедление высвобождения железа при добавлении циклодекстриновых комплексов.",
+            "Модельный эксперимент с последовательной сменой буферов, имитирующих среды ЖКТ, показал:\n" +
+            " - высвобождение В12 в области желудка (область всасывания В12);\n" +
+            " - замедленное высвобождение железа, частично происходящее в области кишечника (область всасывания железа).",
         },
       ],
       roadmapTitle: "Roadmap: модуль витамина B12",
       roadmapText:
-        "PMSSO-гидрогель исследован как носитель витамина B12; профиль высвобождения изучали в трёх средах (pH 1.1 → 6.8 → 7.4). При этом кривая высвобождения показывает быстрое высвобождение в кислой (желудочной) среде.",
+        "PMSSO-гидрогель исследован как носитель витамина B12. По данным in vitro, профиль высвобождения показывает быстрое высвобождение в кислой (желудочной) среде.",
       sourceLabel: "Источник: ИСТИНА (МГУ)",
       openLabel: "Открыть",
     },
@@ -214,31 +242,53 @@ export const mech = {
       title: "Controlled release: stomach → intestine",
       subtitle:
         "PMSSO hydrogel with HPCD-based iron complexes: improving loading and slowing release in acidic medium.",
+      legendTitle: "Legend:",
+      legendItems: [
+        "Cyclodextrin",
+        "Cyclodextrin–iron complex",
+        "3D cyclodextrin matrix nanoparticles",
+        "Vitamin B12",
+      ],
+      strategyTitle: "Delivery strategy:",
+      strategyItems: [
+        {
+          title: "Carrier matrix",
+          text:
+            "Polymethylsilsesquioxane (PMSSO) hydrogels — biocompatible organosilicon hydrogels with high sorption capacity.",
+        },
+        {
+          title: "Prolonged-release agent",
+          text:
+            "Cyclodextrins and cyclodextrin-based polymers — a widely used class of compounds for drug delivery and release prolongation.",
+        },
+      ],
       steps: [
         {
           title: "Challenge",
           text:
-            "In pilot experiments, the “PMSSO + Fe(II) D-gluconate” system is prone to rapid release in acidic media, and sorption efficiency may be insufficient for an adequate therapeutic concentration.",
+            "In pilot experiments, the “PMSSO + Fe(II) D-gluconate” pair can load iron, but diffusion-controlled release occurs mainly in the acidic gastric medium.",
         },
         {
           title: "Approach",
           text:
-            "We incorporate iron compounds into host–guest complexes with 2-hydroxypropyl-β-cyclodextrin (HPCD) and embed them into the PMSSO hydrogel network to enable a more controlled delivery system.",
+            "We first incorporate iron into hydroxypropyl-β-cyclodextrin host–guest complexes, and then load these complexes into the PMSSO hydrogel network to enable a more controlled delivery system.",
         },
         {
           title: "GI-mimicking validation",
           text:
-            "In digestive-tract-simulating media, sequential buffer changes from “stomach → intestinal” highlighted slower iron release when cyclodextrin complexes were introduced.",
+            "In digestive-tract-simulating buffer media, sequential medium change showed: vitamin B12 release in the gastric region (B12 uptake zone) and slower iron release, partly shifted towards the intestinal region (iron uptake zone).",
         },
       ],
       roadmapTitle: "Roadmap: vitamin B12 module",
       roadmapText:
-        "PMSSO hydrogel has been examined as a vitamin B12 carrier; release was studied in three media (pH 1.1 → 6.8 → 7.4). The release curve shows rapid release in the acidic (gastric) medium.",
+        "PMSSO hydrogel has been examined as a vitamin B12 carrier. In vitro release profiles show rapid release in the acidic (gastric) medium.",
       sourceLabel: "Source: ISTINA (MSU)",
       openLabel: "Open",
     },
   },
 };
+
+const legendIcons = [legend_cd, legend_cd_fe, legend_matrix, legend_b12];
 
 export const fadeInUpVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -282,7 +332,109 @@ function MechanismSection({
           <p className="mt-3 text-lg" style={{ color: "rgba(43,45,66,0.72)" }}>
             {m.subtitle}
           </p>
+
+          {m.strategyItems && (
+            <div className="mt-8 text-left max-w-4xl mx-auto">
+              <div
+                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium"
+                style={{
+                  background: "rgba(239,35,60,0.06)",
+                  color: "var(--chem-red)",
+                  border: "1px solid rgba(217,4,41,0.18)",
+                }}
+              >
+                <Atom className="w-3 h-3" />
+                <span>{m.strategyTitle}</span>
+              </div>
+
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                {m.strategyItems.map(
+                  (item: { title: string; text: string }, idx: number) => (
+                    <div
+                      key={idx}
+                      className="rounded-2xl border bg-white/70 p-4 text-sm"
+                      style={{
+                        borderColor: "rgba(0,0,0,0.06)",
+                        color: "rgba(43,45,66,0.86)",
+                      }}
+                    >
+                      <div
+                        className="mb-1 font-semibold"
+                        style={{ color: "var(--chem-dark)" }}
+                      >
+                        {item.title}
+                      </div>
+                      <p className="text-sm leading-relaxed">{item.text}</p>
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          )}
         </motion.div>
+
+        {/* Схема матрицы + подписи */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUp}
+          className="mt-10 rounded-3xl border bg-white/70 p-6 lg:p-8"
+          style={{ borderColor: "rgba(0,0,0,0.08)" }}
+        >
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] items-center">
+            {/* Круглая схема */}
+            <div className="relative rounded-3xl border border-slate-200/70 bg-white/60 p-6 shadow-sm backdrop-blur">
+              <img
+                src={shemePolya}
+                alt={
+                  language === "ru"
+                    ? "Схема матрицы PMSSO/цикло-DEX/Fe/B12"
+                    : "PMSSO/CD/Fe/B12 matrix schematic"
+                }
+                className="mx-auto max-w-full h-auto object-contain select-none pointer-events-none"
+              />
+            </div>
+
+            {/* Подписи с картинками */}
+            {m.legendItems && (
+              <div className="space-y-4">
+                <div
+                  className="text-xs font-medium uppercase tracking-wide"
+                  style={{ color: "rgba(43,45,66,0.6)" }}
+                >
+                  {m.legendTitle}
+                </div>
+
+                <div className="space-y-3">
+                  {m.legendItems.map((item: string, idx: number) => {
+                    const icon = legendIcons[idx];
+
+                    return (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-3 text-sm"
+                        style={{ color: "rgba(43,45,66,0.9)" }}
+                      >
+                        {icon && (
+                          <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl border border-slate-200/70 bg-white/80">
+                            <img
+                              src={icon}
+                              alt={item}
+                              className="max-h-8 max-w-[2.5rem] object-contain select-none pointer-events-none"
+                            />
+                          </div>
+                        )}
+                        <span>{item}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </motion.div>
+
 
         <div className="lg:sticky lg:top-24 lg:grid-cols-2 lg:items-start flex items-center justify-center relative rounded-3xl bg-white/70 flex items-center justify-center p-6">
           {/* LEFT: schematic card */}
@@ -312,7 +464,7 @@ function MechanismSection({
               </div>
 
               {/* timeline */}
-              <div className="mt-6 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-4">
+              <div className="mt-6 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
                 <div className="rounded-2xl p-4 border bg-white"
                      style={{ borderColor: "rgba(0,0,0,0.06)" }}>
                   <div className="flex items-center gap-2">
@@ -322,7 +474,7 @@ function MechanismSection({
                     </div>
                   </div>
                   <div className="mt-2 text-sm" style={{ color: "rgba(43,45,66,0.72)" }}>
-                    {language === "ru" ? "Снизить раннее высвобождение" : "Reduce early release"}
+                    {language === "ru" ? "Высвобождение B12" : "B12 Release"}
                   </div>
                 </div>
 
@@ -333,28 +485,14 @@ function MechanismSection({
                   <div className="flex items-center gap-2">
                     <FlaskConical className="w-4 h-4" style={{ color: accent }} />
                     <div className="font-semibold" style={{ color: "var(--chem-dark)" }}>
-                      {language === "ru" ? "Тонкий кишечник" : "Small intestine"}
+                      {language === "ru" ? "Кишечник" : "Intestine"}
                     </div>
                   </div>
                   <div className="mt-2 text-sm" style={{ color: "rgba(43,45,66,0.72)" }}>
-                    {language === "ru" ? "Контролируемое высвобождение" : "Controlled release"}
+                    {language === "ru" ? "Пролонгированное высвобождение железа" : "Prolonged iron release"}
                   </div>
                 </div>
 
-                <ArrowRight className="w-5 h-5" style={{ color: "rgba(43,45,66,0.45)" }} />
-
-                <div className="rounded-2xl p-4 border bg-white"
-                     style={{ borderColor: "rgba(0,0,0,0.06)" }}>
-                  <div className="flex items-center gap-2">
-                    <Stethoscope className="w-4 h-4" style={{ color: accent }} />
-                    <div className="font-semibold" style={{ color: "var(--chem-dark)" }}>
-                      {language === "ru" ? "Roadmap" : "Roadmap"}
-                    </div>
-                  </div>
-                  <div className="mt-2 text-sm" style={{ color: "rgba(43,45,66,0.72)" }}>
-                    {language === "ru" ? "Модуль B12" : "B12 module"}
-                  </div>
-                </div>
               </div>
 
               {/* soft blob */}
@@ -419,22 +557,6 @@ function MechanismSection({
                   </p>
                 </div>
               ))}
-
-              {/* Roadmap B12 */}
-              <div
-                className="rounded-2xl border p-5"
-                style={{
-                  borderColor: "rgba(217,4,41,0.18)",
-                  background: "rgba(239,35,60,0.08)",
-                }}
-              >
-                <div className="text-base font-semibold" style={{ color: "var(--chem-red)" }}>
-                  {m.roadmapTitle}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(43,45,66,0.78)" }}>
-                  {m.roadmapText}
-                </p>
-              </div>
             </div>
           </motion.div>
         </div>
@@ -476,7 +598,7 @@ export function GrantThanksCard() {
               {/* optional: grant line */}
               <p className="mt-2 text-sm text-slate-500">
                 {/* Если нужно — раскомментируй и подставь номер */}
-                Грант № <span className="font-medium text-slate-700">XXXXX</span>
+                Грант № <span className="font-medium text-slate-700">4509ГССС15-L/102591</span>
               </p>
             </div>
 
@@ -714,7 +836,7 @@ export function ContactSection() {
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-            Свяжитесь с нами
+            Сведения о Юридическом Лице
           </h2>
           <div className="mx-auto mt-6 h-px w-24 bg-slate-200" />
         </div>
@@ -722,25 +844,37 @@ export function ContactSection() {
           <BrandCard
             href="./"
             logo={<img src={ourLogo} alt="" className="h-full w-full object-contain" />}
-            title="СИЛИКАФЕР"
-            subtitle="Научные исследования и разработки в области естественных и технических наук (прочие)"
+            title='ООО "СИЛИКАФЕР'
+            subtitle="Научные исследования и разработки в области естественных и технических наук"
             cta="На главную"
           />
 
-          <ContactCard Icon={Mail} title="Email" value="you@domain.com" href="mailto:you@domain.com" />
-
           <ContactCard
-            Icon={Phone}
-            title="Телефон"
-            value="+1 (555) 123-4567"
-            href="tel:+15551234567"
+            Icon={SquareKanban}
+            title="ИНН"
+            value="9729393187"
+            href="9729393187"
           />
 
           <ContactCard
-            Icon={MapPin}
-            title="Адрес"
-            value="119602, город Москва, ул Академика Анохина, д. 42 к. 2, кв. 219"
-            href="https://yandex.com/maps/-/CLDNR8Ok"
+            Icon={SquareLibrary}
+            title="КПП"
+            value="772901001"
+            href="772901001"
+          />
+
+          <ContactCard
+            Icon={Archive}
+            title="ОГРН"
+            value="1257700001085"
+            href="1257700001085"
+          />
+
+          <ContactCard
+            Icon={BrainCog}
+            title="ОКВЭД"
+            value="72.19 Научные исследования и разработки в области естественных и технических наук"
+            href="72.19 Научные исследования и разработки в области естественных и технических наук"
           />
 
         </div>
@@ -752,7 +886,7 @@ export function ContactSection() {
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openCard, setOpenCard] = useState<number | null>(null);
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('ru');
   const howCardsWrapRef = useRef<HTMLDivElement | null>(null);
 
   const t = translations[language];
@@ -780,7 +914,7 @@ export default function App() {
   ? [
       {
         problemTitle: 'Проблема',
-        problemText: 'Железо всасывается в основном в двенадцатиперстной и проксимальной тощей кишке, но при пероральном приёме значимая часть может взаимодействовать с ЖКТ раньше.',
+        problemText: 'Всасывание железа происходит в двенадцатиперстной и тощей кишке, однако при пероральном приёме значительная часть железа высвобождается в желудке из-за агрессивной пищеварительной среды.',
         solutionTitle: 'Решение',
         solutionText: 'Нужны системы доставки с контролируемым/пролонгированным высвобождением; в композитах PMSSO-гидрогель + сшитые наночастицы SBECD показаны усиление сорбции железа и sustained release в моделируемых физиологических условиях.',
         color: 'var(--chem-coral)',
@@ -791,7 +925,7 @@ export default function App() {
       },
       {
         problemTitle: 'Проблема',
-        problemText: 'Пероральные препараты железа связаны с ЖКТ-побочками (например, запор, вздутие), что снижает приверженность лечению.',
+        problemText: 'Железо является достаточно токсичным элементом для желудка, поэтому преждевременное высвобождение ведет к ряду неприятных побочных эффектов (диарея, боли и другие расстройства ЖКТ). Побочные эффекты снижают качество жизни пациента и приводят к недостаточной эффективности терапии.',
         solutionTitle: 'Решение',
         solutionText: 'Подходы с доставкой/высвобождением, рассчитанными на снижение “лишнего” контакта с просветом ЖКТ, рассматриваются как путь к улучшению переносимости; в работе про PMSSO+SBECD композиты заявлена перспектива повышения эффективности и минимизации нежелательных эффектов.',
         color: 'var(--chem-orange)',
@@ -802,7 +936,7 @@ export default function App() {
       },
       {
         problemTitle: 'Проблема',
-        problemText: 'Анемии бывают связаны не только с дефицитом железа: дефицит витамина B12 — одна из ведущих причин мегалобластной анемии.',
+        problemText: 'Анемия может быть вызвана не только дефицитом железа, но и дефицитом витамина В12 - примерно у 1/4 пациентов с диагнозом анемии наблюдается совместный дефицит железа и витамина В12.',
         solutionTitle: 'Решение',
         solutionText: 'Расширение платформы на модуль доставки B12. Для PMSSO-гидрогелей показана принципиальная возможность доставки витамина B12 (биосовместимость/сорбционная ёмкость в описании работы).',
         color: 'var(--chem-light-orange)',
