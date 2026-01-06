@@ -5,6 +5,8 @@ import { ImageWithFallback } from './components/figma/ImageWithFallback';
 import { AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 
+import startPic from "../../src/assets/start.jpg"
+
 import qr1 from "../../src/assets/qr/istina_685576841.png";
 import qr2 from "../../src/assets/qr/istina_660882404.png";
 import qr3 from "../../src/assets/qr/istina_776944165.png";
@@ -1112,7 +1114,7 @@ export default function App() {
             >
               <div className="absolute inset-0 rounded-2xl blur-xl opacity-30" style={{ background: `linear-gradient(135deg, var(--chem-red), var(--chem-orange))` }} />
               <ImageWithFallback 
-                src="https://images.unsplash.com/photo-1602052577122-f73b9710adba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzY2llbmNlJTIwbGFib3JhdG9yeXxlbnwxfHx8fDE3NjYwMzQ3MDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src={startPic}
                 alt="Science Laboratory"
                 className="relative rounded-2xl w-full h-auto border" 
                 style={{ borderColor: 'var(--chem-coral-20)' }}
